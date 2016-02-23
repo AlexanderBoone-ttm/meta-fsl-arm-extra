@@ -9,9 +9,8 @@ UBOOT_SUFFIX = "bin"
 UBOOT_MAKE_TARGET = "u-boot.bin"
 UBOOT_BINARY="u-boot.bin"
 
-PREFERRED_PROVIDER_u-boot = "u-boot-karo"
-PREFERRED_PROVIDER_virtual/kernel = "linux-karo"
-PREFERRED_VERSION_linux-karo ?= "3.16%"
+PREFERRED_PROVIDER_u-boot ?= "u-boot-karo"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-karo"
 
 MACHINE_FIRMWARE_append_mx6 = " linux-firmware-ath6k"
 MACHINE_FEATURES += " pci wifi bluetooth"
