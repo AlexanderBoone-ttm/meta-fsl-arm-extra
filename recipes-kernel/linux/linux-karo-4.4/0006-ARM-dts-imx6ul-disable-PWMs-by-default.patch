@@ -1,0 +1,58 @@
+From e8c79a738ce1d33721491a0cf0d1c94d0ec52093 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lothar=20Wa=C3=9Fmann?= <LW@KARO-electronics.de>
+Date: Wed, 20 Jan 2016 10:14:40 +0100
+Subject: [PATCHv2 06/16] ARM: dts: imx6ul: disable PWMs by default
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Since PWMs are only useful if they are actually connected to an output pin,
+let users enable them explicitly in their device trees where they should
+also set up the pin configuration. This is in sync with a recent change
+(commit e2675266b39b "ARM: dts: imx6qdl: disable PWMs by default")
+to other i.MX SoCs.
+
+Signed-off-by: Lothar Waßmann <LW@KARO-electronics.de>
+---
+ arch/arm/boot/dts/imx6ul.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx6ul.dtsi b/arch/arm/boot/dts/imx6ul.dtsi
+index 3aba0bb..863777e 100644
+--- a/arch/arm/boot/dts/imx6ul.dtsi
++++ b/arch/arm/boot/dts/imx6ul.dtsi
+@@ -512,6 +512,7 @@
+ 					 <&clks IMX6UL_CLK_PWM5>;
+ 				clock-names = "ipg", "per";
+ 				#pwm-cells = <2>;
++				status = "disabled";
+ 			};
+ 
+ 			pwm6: pwm@020f4000 {
+@@ -522,6 +523,7 @@
+ 					 <&clks IMX6UL_CLK_PWM6>;
+ 				clock-names = "ipg", "per";
+ 				#pwm-cells = <2>;
++				status = "disabled";
+ 			};
+ 
+ 			pwm7: pwm@020f8000 {
+@@ -532,6 +534,7 @@
+ 					 <&clks IMX6UL_CLK_PWM7>;
+ 				clock-names = "ipg", "per";
+ 				#pwm-cells = <2>;
++				status = "disabled";
+ 			};
+ 
+ 			pwm8: pwm@020fc000 {
+@@ -542,6 +545,7 @@
+ 					 <&clks IMX6UL_CLK_PWM8>;
+ 				clock-names = "ipg", "per";
+ 				#pwm-cells = <2>;
++				status = "disabled";
+ 			};
+ 		};
+ 
+-- 
+2.1.4
+

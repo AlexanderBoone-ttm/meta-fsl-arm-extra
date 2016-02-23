@@ -1,0 +1,37 @@
+From 5c4824fc88b9020a1fbfc6851682bd4a8a62c89c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lothar=20Wa=C3=9Fmann?= <LW@KARO-electronics.de>
+Date: Wed, 20 Jan 2016 10:15:16 +0100
+Subject: [PATCHv2 15/16] ARM: dts: imx6ul: add kpp support
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This patch adds the device node for the i.MX6UL keypad controller.
+
+Signed-off-by: Lothar Waßmann <LW@KARO-electronics.de>
+---
+ arch/arm/boot/dts/imx6ul.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx6ul.dtsi b/arch/arm/boot/dts/imx6ul.dtsi
+index 8499b3d..7177899 100644
+--- a/arch/arm/boot/dts/imx6ul.dtsi
++++ b/arch/arm/boot/dts/imx6ul.dtsi
+@@ -471,6 +471,14 @@
+ 				status = "disabled";
+ 			};
+ 
++			kpp: kpp@020b8000 {
++				compatible = "fsl,imx6ul-kpp", "fsl,imx6q-kpp", "fsl,imx21-kpp";
++				reg = <0x020b8000 0x4000>;
++				interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clks IMX6UL_CLK_KPP>;
++				status = "disabled";
++			};
++
+ 			wdog1: wdog@020bc000 {
+ 				compatible = "fsl,imx6ul-wdt", "fsl,imx21-wdt";
+ 				reg = <0x020bc000 0x4000>;
+-- 
+2.1.4
+

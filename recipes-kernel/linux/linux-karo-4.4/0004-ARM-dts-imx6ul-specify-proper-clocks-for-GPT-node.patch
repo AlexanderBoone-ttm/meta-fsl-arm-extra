@@ -1,0 +1,34 @@
+From e414f3e40dad212dae2a694a100c68cdcfbdbad5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lothar=20Wa=C3=9Fmann?= <LW@KARO-electronics.de>
+Date: Wed, 20 Jan 2016 10:14:34 +0100
+Subject: [PATCHv2 04/16] ARM: dts: imx6ul: specify proper clocks for GPT node
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The i.MX6UL GPT unit requires real clocks. Define the appropriate
+clocks to make it work.
+
+Signed-off-by: Lothar Waßmann <LW@KARO-electronics.de>
+---
+ arch/arm/boot/dts/imx6ul.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/imx6ul.dtsi b/arch/arm/boot/dts/imx6ul.dtsi
+index e4c3a80..e6e3e54 100644
+--- a/arch/arm/boot/dts/imx6ul.dtsi
++++ b/arch/arm/boot/dts/imx6ul.dtsi
+@@ -499,8 +499,8 @@
+ 				compatible = "fsl,imx6ul-gpt", "fsl,imx6sx-gpt";
+ 				reg = <0x020e8000 0x4000>;
+ 				interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
+-				clocks = <&clks IMX6UL_CLK_DUMMY>,
+-					 <&clks IMX6UL_CLK_DUMMY>;
++				clocks = <&clks IMX6UL_CLK_GPT2_BUS>,
++					 <&clks IMX6UL_CLK_GPT2_SERIAL>;
+ 				clock-names = "ipg", "per";
+ 			};
+ 
+-- 
+2.1.4
+

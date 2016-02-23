@@ -1,0 +1,40 @@
+From 3d60f359c464c21269bbd15c15fb9039b8c53bee Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lothar=20Wa=C3=9Fmann?= <LW@KARO-electronics.de>
+Date: Wed, 20 Jan 2016 10:14:55 +0100
+Subject: [PATCHv2 11/16] ARM: dts: imx6ul: add lcdif support
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Add the device node for the i.MX6UL eLCDIF interface.
+
+Signed-off-by: Lothar Waßmann <LW@KARO-electronics.de>
+---
+ arch/arm/boot/dts/imx6ul.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx6ul.dtsi b/arch/arm/boot/dts/imx6ul.dtsi
+index e1fda39e..985c1b1 100644
+--- a/arch/arm/boot/dts/imx6ul.dtsi
++++ b/arch/arm/boot/dts/imx6ul.dtsi
+@@ -798,6 +798,17 @@
+ 				reg = <0x021b0000 0x4000>;
+ 			};
+ 
++			lcdif: lcdif@021c8000 {
++				compatible = "fsl,imx6ul-lcdif", "fsl,imx28-lcdif";
++				reg = <0x021c8000 0x4000>;
++				interrupts = <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clks IMX6UL_CLK_LCDIF_PIX>,
++					 <&clks IMX6UL_CLK_LCDIF_APB>,
++					 <&clks IMX6UL_CLK_DUMMY>;
++				clock-names = "pix", "axi", "disp_axi";
++				status = "disabled";
++			};
++
+ 			qspi: qspi@021e0000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+-- 
+2.1.4
+
