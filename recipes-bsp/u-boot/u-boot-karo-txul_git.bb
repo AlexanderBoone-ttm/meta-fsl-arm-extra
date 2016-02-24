@@ -16,4 +16,4 @@ S = "${WORKDIR}/git"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-COMPATIBLE_MACHINE  = "(tx6ul-.*)"
+COMPATIBLE_MACHINE  = "(txul-.*)"
